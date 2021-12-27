@@ -21,14 +21,20 @@ const Search: React.FC<PropTypes> = () => {
 				});
 			}
 		});
-		console.log("got the data!");
 	};
 	const fechDataWrapperFunc = (e: React.ChangeEvent<HTMLInputElement>) =>
 		fetchData(e.target.value);
-	const debouncedOnChange = debounce(fechDataWrapperFunc, 600);
+	const debouncedOnChange = debounce(fechDataWrapperFunc, 500);
 
 	return (
-		<input type="text" name="search" id="search" onChange={debouncedOnChange} />
+		<div className="input-wrapper">
+			<input
+				type="text"
+				name="search"
+				id="search"
+				onChange={debouncedOnChange}
+			/>
+		</div>
 	);
 };
 type PropTypes = {};

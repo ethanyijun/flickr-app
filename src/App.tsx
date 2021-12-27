@@ -6,14 +6,14 @@ import PhotoList from "./components/PhotoList/PhotoList";
 
 function App() {
 	return (
-		<>
+		<div className="container">
 			<Router>
 				<Routes>
 					<Route path="/" element={<PhotoList />} />
 					<Route path="/photos/:id" element={<PhotoItem />} />
 				</Routes>
 			</Router>
-		</>
+		</div>
 	);
 }
 

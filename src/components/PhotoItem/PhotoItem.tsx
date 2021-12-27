@@ -3,8 +3,21 @@ import React from "react";
 const PhotoItem: React.FC<PropTypes> = ({ photo }) => {
 	return (
 		<div>
-			<h1>This is PhotoItem component</h1>
-			<div>{photo?.title}</div>
+			{photo && (
+				<div className="photo-wrapper">
+					<div className="image-wrapper">
+						<img src={photo.media.m} alt="" />
+					</div>
+					<div className="photo-details-wrapper">
+						<h2>{photo.title}</h2>
+						<div className="photo-details">
+							<p>{photo.author}</p>
+							<p>{photo.date_taken}</p>
+							<p>{photo.tags}</p>
+						</div>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };
