@@ -1,17 +1,18 @@
-import React from "react";
-import { Route, Routes } from "react-router";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+
 import "./App.css";
 import PhotoItem from "./components/PhotoItem/PhotoItem";
 import PhotoList from "./components/PhotoList/PhotoList";
-// import Search from "./components/Search/search";
 
 function App() {
 	return (
 		<>
-			<Routes>
-				<Route path="/" element={<PhotoList />} />
-				<Route path="/photos/:id" element={<PhotoItem />} />
-			</Routes>
+			<Router>
+				<Routes>
+					<Route path="/" element={<PhotoList />} />
+					<Route path="/photos/:id" element={<PhotoItem />} />
+				</Routes>
+			</Router>
 		</>
 	);
 }

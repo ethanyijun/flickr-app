@@ -15,11 +15,9 @@ const store: Store<PhotoListState> & {
 
 ReactDOM.render(
 	<React.StrictMode>
-		<BrowserRouter>
-			<Provider store={store}>
-				<App />
-			</Provider>
-		</BrowserRouter>
+		<Provider store={store}>
+			<App />
+		</Provider>
 	</React.StrictMode>,
 	document.getElementById("root")
 );
