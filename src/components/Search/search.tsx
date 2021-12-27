@@ -3,6 +3,7 @@ import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
 import jsonp from "jsonp";
 import { UPDATE_PHOTOS } from "../../constants/photoConstants";
+import debounce from "lodash.debounce";
 
 const Search: React.FC<PropTypes> = () => {
 	const dispatch: Dispatch<any> = useDispatch();
@@ -20,13 +21,15 @@ const Search: React.FC<PropTypes> = () => {
 				});
 			}
 		});
+		console.log("got the data!");
 	};
+	const fechDataWrapperFunc = (e: React.ChangeEvent<HTMLInputElement>) =>
+		fetchData(e.target.value);
+	const debouncedOnChange = debounce(fechDataWrapperFunc, 600);
 
-	const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		fetchData(event.target.value);
-	};
-
-	return <input type="text" name="search" id="search" onChange={onChange} />;
+	return (
+		<input type="text" name="search" id="search" onChange={debouncedOnChange} />
+	);
 };
 type PropTypes = {};
 export default Search;
