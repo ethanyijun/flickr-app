@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { findPhotoId } from "../utils";
 
 const PhotoItem: React.FC<PropTypes> = ({ photo }) => {
 	return (
@@ -6,14 +8,17 @@ const PhotoItem: React.FC<PropTypes> = ({ photo }) => {
 			{photo && (
 				<div className="photo-wrapper">
 					<div className="image-wrapper">
-						<img src={photo.media.m} alt="" />
+						<Link to={`/photos/${findPhotoId(photo.link)}`}>
+							<img src={photo.media.m} alt="" />
+						</Link>
 					</div>
 					<div className="photo-details-wrapper">
 						<h2>{photo.title}</h2>
 						<div className="photo-details">
-							<p>{photo.author}</p>
-							<p>{photo.date_taken}</p>
-							<p>{photo.tags}</p>
+							<div className="test">{`Author: ${photo.author}`}</div>
+
+							<div>{`Date: ${photo.date_taken}`}</div>
+							<div className="test">{`Tags: ${photo.tags}`}</div>
 						</div>
 					</div>
 				</div>

@@ -4,6 +4,10 @@
 	padding: 10px;
 }
 
+body {
+	background-color: #e6f9ff;
+}
+
 .input-wrapper {
 	margin: 60px auto;
 }
@@ -23,7 +27,12 @@
 
 .photo-wrapper {
 	display: flex;
-	height: 160px;
+	height: 120px;
+	margin-bottom: 40px;
+}
+
+.photo-wrapper:hover {
+	background-color: #b3c6ff;
 }
 
 .image-wrapper img {
@@ -42,5 +51,8 @@
 }
 
 .photo-details {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 73px);
+	grid-gap: 7px;
 }
