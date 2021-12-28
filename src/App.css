@@ -56,3 +56,33 @@ body {
 	grid-template-rows: repeat(3, 73px);
 	grid-gap: 7px;
 }
+.photo-details div {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.back-btn {
+	margin: 0;
+	text-decoration: none;
+	color: black;
+	background-color: #b3c6ff;
+	width: 100%;
+	padding: 15px 25px;
+}
+
+.photo-content-wrapper {
+	margin-top: 25px;
+}
+
+.photo-content {
+	display: flex;
+}
+
+.photo-descriptions {
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+}
+.photo-descriptions h2 {
+	margin-top: 0;
+}

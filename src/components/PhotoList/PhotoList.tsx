@@ -12,8 +12,6 @@ const PhotoList: React.FC<PropTypes> = () => {
 
 	return (
 		<>
-			<Header />
-			<Search />
 			{photos &&
 				photos.map((photo: IPhoto, index: number) => (
 					<PhotoItem key={index} photo={photo} />

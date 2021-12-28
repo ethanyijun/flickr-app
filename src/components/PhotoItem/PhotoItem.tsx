@@ -15,10 +15,10 @@ const PhotoItem: React.FC<PropTypes> = ({ photo }) => {
 					<div className="photo-details-wrapper">
 						<h2>{photo.title}</h2>
 						<div className="photo-details">
-							<div className="test">{`Author: ${photo.author}`}</div>
+							<div>{`Author: ${photo.author}`}</div>
 
 							<div>{`Date: ${photo.date_taken}`}</div>
-							<div className="test">{`Tags: ${photo.tags}`}</div>
+							<div>{`Tags: ${photo.tags}`}</div>
 						</div>
 					</div>
 				</div>
