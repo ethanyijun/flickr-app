@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
 import jsonp from "jsonp";
@@ -7,10 +7,10 @@ import debounce from "lodash.debounce";
 
 const Search: React.FC<PropTypes> = () => {
 	const dispatch: Dispatch<any> = useDispatch();
-
-	const fetchData = (searchTerm = "") => {
+	const [input, setInput] = useState("");
+	const fetchData = useCallback(() => {
 		let apiURL = `https://api.flickr.com/services/feeds/photos_public.gne?format=json`;
-		if (searchTerm) apiURL = apiURL + `&tags=${searchTerm}`;
+		if (input) apiURL = apiURL + `&tags=${input}`;
 		jsonp(apiURL, { name: "jsonFlickrFeed" }, (err, data) => {
 			if (err) {
 				console.log(err);
@@ -21,9 +21,21 @@ const Search: React.FC<PropTypes> = () => {
 				});
 			}
 		});
+	}, [input, dispatch]);
+
+	useEffect(() => {
+		if (input) fetchData();
+	}, [fetchData, input]);
+
+	const fechDataWrapperFunc = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (e.target.value) setInput(e.target.value);
+		else
+			dispatch({
+				type: UPDATE_PHOTOS,
+				photos: []
+			});
 	};
-	const fechDataWrapperFunc = (e: React.ChangeEvent<HTMLInputElement>) =>
-		fetchData(e.target.value);
+
 	const debouncedOnChange = debounce(fechDataWrapperFunc, 500);
 
 	return (
