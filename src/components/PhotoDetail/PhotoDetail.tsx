@@ -46,7 +46,6 @@ const PhotoDetail: React.FC<PropTypes> = () => {
 						<div>
 							<img src={selectedPhoto.media.m} alt="" />
 						</div>
-						{console.log(selectedPhoto)}
 						<div className="photo-descriptions">
 							<h2>{`Title: ${selectedPhoto.title}`}</h2>
 							<p>{`Author: ${selectedPhoto.author}`}</p>
